@@ -48,6 +48,13 @@ class App extends Component {
     }
   };  
 
+  hitHandler = () => {
+    this.setState({
+      strikesCount: 0,
+      ballsCount: 0
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -59,6 +66,7 @@ class App extends Component {
           strikeHandler={this.strikeHandler}
           ballHandler={this.ballHandler}
           foulHandler={this.foulHandler}
+          hitHandler={this.hitHandler}
         />
       </div>
     );
