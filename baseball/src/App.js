@@ -26,6 +26,21 @@ class App extends Component {
     }
   }
 
+  ballHandler = () => {
+    if (this.state.ballsCount < 3) {
+      this.setState({
+        ballsCount: this.state.ballsCount + 1
+      });
+    }
+    else {
+      this.setState({
+        strikesCount: 0,
+        ballsCount: 0
+      });
+    }
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -35,6 +50,7 @@ class App extends Component {
         />
         <Dashboard 
           strikeHandler={this.strikeHandler}
+          ballHandler={this.ballHandler}
         />
       </div>
     );

@@ -12,6 +12,8 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
+// DISPLAY COMPONENT TESTS
+
 describe('The Display component', () => {
 
   it('renders the Display component', () => {
@@ -33,13 +35,16 @@ describe('The Display component', () => {
   });
 });
 
+// DASHBOARD COMPONENT TESTS
+
 describe('The Dashboard component', () => {
+
   it('renders the Dashboard component', () => {
     render(<Dashboard/>);
   }); 
 
   it('displays Strike button', () => {
-    const component = render(<Dashboard/>);
+    const component = render(<Dashboard/>); 
     const strikeButton = component.getByTestId('strikeButton');
 
     expect(strikeButton).toHaveTextContent(/strike/i);
