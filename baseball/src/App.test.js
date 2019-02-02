@@ -34,5 +34,35 @@ describe('The Display component', () => {
 });
 
 describe('The Dashboard component', () => {
+  it('renders the Dashboard component', () => {
+    render(<Dashboard/>);
+  }); 
 
+  it('displays Strike button', () => {
+    const component = render(<Dashboard/>);
+    const strikeButton = component.getByTestId('strikeButton');
+
+    expect(strikeButton).toHaveTextContent(/strike/i);
+  });
+
+  it('displays Ball button', () => {
+    const component = render(<Dashboard/>);
+    const ballButton = component.getByTestId('ballButton');
+
+    expect(ballButton).toHaveTextContent(/ball/i);
+  });
+
+  it('displays Foul button', () => {
+    const component = render(<Dashboard/>);
+    const foulButton = component.getByTestId('foulButton');
+
+    expect(foulButton).toHaveTextContent(/foul/i);
+  });
+
+  it('displays Hit button', () => {
+    const component = render(<Dashboard/>);
+    const hitButton = component.getByTestId('hitButton');
+
+    expect(hitButton).toHaveTextContent(/hit/i);
+  });
 });
