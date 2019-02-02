@@ -122,6 +122,20 @@ describe('The Display component', () => {
 
     expect(count).toHaveTextContent('2');
   });
+
+  it('hit button resets ball and strike counters', () => {
+    const app = render(<App/>);
+    const display = render(<Display/>);
+    const dashboard = render(<Dashboard/>);
+    const button = dashboard.getByTestId('hitButton');
+    const strikesCount = display.getByTestId('strikesCount');
+    const ballsCount = display.getByTestId('ballsCount');
+
+    fireEvent.click(button);
+
+    expect(strikesCount).toHaveTextContent('0');
+    expect(ballsCount).toHaveTextContent('0');
+  });
 });
 
 // DASHBOARD COMPONENT TESTS
