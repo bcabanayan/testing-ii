@@ -62,6 +62,22 @@ describe('The Display component', () => {
     expect(count).toHaveTextContent('1');
   });
 
+  it('three strikes resets counter', () => {
+    const app = render(<App/>);
+    const display = render(<Display/>);
+    const dashboard = render(<Dashboard/>);
+    const button = dashboard.getByTestId('strikeButton');
+    const strikesCount = display.getByTestId('strikesCount');
+    const ballsCount = display.getByTestId('ballsCount');
+
+    fireEvent.click(button);
+    fireEvent.click(button);
+    fireEvent.click(button);
+
+    expect(strikesCount).toHaveTextContent('0');
+    expect(ballsCount).toHaveTextContent('0');
+  });
+
   it('ball button increments ball count', () => {
     const app = render(<App/>);
     const display = render(<Display/>);
@@ -69,6 +85,38 @@ describe('The Display component', () => {
     const button = dashboard.getByTestId('ballButton');
     const count = display.getByTestId('ballsCount');
 
+    fireEvent.click(button);
+    fireEvent.click(button);
+
+    expect(count).toHaveTextContent('2');
+  });
+
+  it('four balls resets counter', () => {
+    const app = render(<App/>);
+    const display = render(<Display/>);
+    const dashboard = render(<Dashboard/>);
+    const button = dashboard.getByTestId('ballButton');
+    const strikesCount = display.getByTestId('strikesCount');
+    const ballsCount = display.getByTestId('ballsCount');
+
+    fireEvent.click(button);
+    fireEvent.click(button);
+    fireEvent.click(button);
+    fireEvent.click(button);
+
+    expect(strikesCount).toHaveTextContent('0');
+    expect(ballsCount).toHaveTextContent('0');
+  });
+
+  it('foul button increments strikes count to max of 2', () => {
+    const app = render(<App/>);
+    const display = render(<Display/>);
+    const dashboard = render(<Dashboard/>);
+    const button = dashboard.getByTestId('foulButton');
+    const count = display.getByTestId('strikesCount');
+
+    fireEvent.click(button);
+    fireEvent.click(button);
     fireEvent.click(button);
     fireEvent.click(button);
 
