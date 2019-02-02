@@ -49,6 +49,31 @@ describe('The Display component', () => {
     rerender(<Display strikesCount={1}/>);
     expect(getByTestId('strikesCount').textContent).toBe('1');
   });
+
+  it('strike button increments strike count', () => {
+    const app = render(<App/>);
+    const display = render(<Display/>);
+    const dashboard = render(<Dashboard/>);
+    const button = dashboard.getByTestId('strikeButton');
+    const count = display.getByTestId('strikesCount');
+
+    fireEvent.click(button);
+
+    expect(count).toHaveTextContent('1');
+  });
+
+  it('ball button increments ball count', () => {
+    const app = render(<App/>);
+    const display = render(<Display/>);
+    const dashboard = render(<Dashboard/>);
+    const button = dashboard.getByTestId('ballButton');
+    const count = display.getByTestId('ballsCount');
+
+    fireEvent.click(button);
+    fireEvent.click(button);
+
+    expect(count).toHaveTextContent('2');
+  });
 });
 
 // DASHBOARD COMPONENT TESTS
