@@ -38,8 +38,15 @@ class App extends Component {
         ballsCount: 0
       });
     }
-  }
+  };
 
+  foulHandler = () => {
+    if (this.state.strikesCount < 2) {
+      this.setState({
+        strikesCount: this.state.strikesCount + 1
+      });
+    }
+  };  
 
   render() {
     return (
@@ -51,6 +58,7 @@ class App extends Component {
         <Dashboard 
           strikeHandler={this.strikeHandler}
           ballHandler={this.ballHandler}
+          foulHandler={this.foulHandler}
         />
       </div>
     );
