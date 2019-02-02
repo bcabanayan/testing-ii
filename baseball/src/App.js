@@ -4,14 +4,27 @@ import Display from './Display.js';
 import Dashboard from './Dashboard.js';
 
 class App extends Component {
-   constructor(props) {
-     super(props);
-     this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {
       ballsCount: 0,
       strikesCount: 0
-     }
-   } 
-
+    }
+  }
+  
+  strikeHandler = () => {
+    if (this.state.strikesCount < 2) {
+      this.setState({
+        strikesCount: this.state.strikesCount + 1
+      });
+    }
+    else {
+      this.setState({
+        strikesCount: 0,
+        ballsCount: 0
+      });
+    }
+  }
 
   render() {
     return (
@@ -20,7 +33,9 @@ class App extends Component {
           ballsCount={this.state.ballsCount}
           strikesCount={this.state.strikesCount}
         />
-        <Dashboard />
+        <Dashboard 
+          strikeHandler={this.strikeHandler}
+        />
       </div>
     );
   }
