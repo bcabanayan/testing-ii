@@ -14,6 +14,23 @@ it('renders without crashing', () => {
 
 describe('The Display component', () => {
 
+  it('renders the Display component', () => {
+    render(<Display/>);
+  }); 
+  
+  it('displays Balls description', () => {
+    const component = render(<Display/>);
+    const balls = component.getByTestId('balls');
+
+    expect(balls).toHaveTextContent(/balls:/i);
+  });
+
+  it('displays Strikes description', () => {
+    const component = render(<Display/>);
+    const strikes = component.getByTestId('strikes');
+
+    expect(strikes).toHaveTextContent(/strikes:/i);
+  });
 });
 
 describe('The Dashboard component', () => {
