@@ -7,11 +7,11 @@ class Display extends Component {
       <div>
           <div>
             <h2 data-testid='balls'>Balls:</h2>
-            <p>{this.props.ballsCount}</p>
+            <p data-testid='ballsCount'>{this.props.ballsCount}</p>
           </div>
           <div>
             <h2 data-testid='strikes'>Strikes:</h2>
-            <p>{this.props.strikesCount}</p>
+            <p data-testid='strikesCount'>{this.props.strikesCount}</p>
           </div>
       </div>
     );

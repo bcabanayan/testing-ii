@@ -12,6 +12,8 @@ class App extends Component {
     }
   }
   
+  // strike button click handler
+
   strikeHandler = () => {
     if (this.state.strikesCount < 2) {
       this.setState({
@@ -25,6 +27,8 @@ class App extends Component {
       });
     }
   }
+
+  // ball button click handler
 
   ballHandler = () => {
     if (this.state.ballsCount < 3) {
@@ -40,6 +44,8 @@ class App extends Component {
     }
   };
 
+  // foul button click handler
+
   foulHandler = () => {
     if (this.state.strikesCount < 2) {
       this.setState({
@@ -47,6 +53,8 @@ class App extends Component {
       });
     }
   };  
+
+  // hit button click handler
 
   hitHandler = () => {
     this.setState({
